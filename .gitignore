@@ -1,3 +1,6 @@
+# Private sections for configurations or authorizations
+my_*
+
 # PyCharm
 .idea/
 
