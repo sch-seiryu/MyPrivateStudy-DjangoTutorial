@@ -14,8 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import include
 from django.urls import path
 
+from django.views.generic import RedirectView
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 ]
+
+urlpatterns += [
+    path('mystudy/', include('mystudy.urls')),
+]
+
+# 'Add URL maps to redirect the base URL to our application'
+urlpatterns += [
+    path('', RedirectView.as_view(url='/mystudy/', permanent=True))
+]
+
+# 'Use static() to add url mapping to serve static files during development (only)'
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

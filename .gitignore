@@ -1,8 +1,11 @@
 # Private sections for configurations or authorizations
 my_*
 
-# PyCharm
+# PyCharm / IDE
 .idea/
+
+# Link / Reference
+*.lnk
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
